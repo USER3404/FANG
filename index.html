@@ -11,8 +11,8 @@
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="ca-pub-4525223345555013" name="google-adsense-account"/>
 
-  <title>Ghost Services</title>
-  <meta name="description" content="Ghost Services provides online tools for profiles, chat, classroom help management, calendars, and meetings.">
+  <title>FANG | NexOS tools</title>
+  <meta name="description" content="FANG is a black and gold variation of the original NexOS project, with tools for communication, organization, and everyday workflows.">
 
   <style>
 @font-face {
@@ -1069,22 +1069,103 @@ body {
 }
 
 </style>
+<style>
+:root {
+  --fang-black: #090a0b;
+  --fang-panel: #131518;
+  --fang-gold: #d6ad52;
+  --fang-gold-bright: #f2ca72;
+  --fang-cream: #f4efe4;
+  --fang-muted: #a9a397;
+  --fang-line: rgba(214,173,82,.28);
+}
+body {
+  background: radial-gradient(circle at 85% 0%, rgba(214,173,82,.12), transparent 32rem), var(--fang-black);
+  color: var(--fang-cream);
+}
+.wrapper { position: relative; }
+.textabovethatabove h1, .ghost-footer-brand, .ghost-box h2 { color: var(--fang-cream); }
+.textabovethatabove img, .ghost-footer-brand img { filter: sepia(1) saturate(2) brightness(1.2); }
+.words span { background: linear-gradient(90deg, var(--fang-gold), var(--fang-gold-bright), var(--fang-gold)); background-size: 200%; }
+.ourtoolsansstuff, .ourtoolsansstuff2, .ghost-box p { color: var(--fang-muted); }
+.ourtoolsansstuff a, .pp-tos a, .ghost-footer-links a { color: var(--fang-gold-bright); }
+.ghost-box, .feature-pill, .account-chip.ghost-move-button { background: var(--fang-panel); border-color: var(--fang-line); }
+.ghost-box:hover, .feature-pill:hover, .account-chip.ghost-move-button:hover { border-color: var(--fang-gold); }
+.feature-pill { color: var(--fang-cream); }
+.section-label { color: var(--fang-gold); }
+.ghost-footer { border-top-color: var(--fang-line); }
+.ghost-footer-links a { color: var(--fang-muted); }
+.ghost-footer-links a:hover { color: var(--fang-gold-bright); }
+#siteCount { color: var(--fang-gold) !important; }
+.ghost-move-fill { background: var(--fang-panel) !important; }
+.ghost-move-normal { border-color: var(--fang-line); }
+.ghost-move-button { color: var(--fang-cream); }
+.ghost-move-button.dark .ghost-move-fill { background: var(--fang-gold) !important; }
+.ghost-move-button.dark { color: var(--fang-black); }
+.ghost-move-button:before { background: linear-gradient(135deg, var(--fang-gold), var(--fang-gold-bright)); }
+.ghost-move-button:after { background: var(--fang-gold); }
+.fang-disclosure-backdrop { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 24px; background: rgba(3,4,4,.86); backdrop-filter: blur(10px); animation: disclosure-in .35s ease both; }
+.fang-disclosure { width: min(100%, 560px); padding: clamp(28px, 5vw, 48px); background: linear-gradient(145deg, #1b1a16, var(--fang-panel)); border: 1px solid var(--fang-line); border-radius: 8px; box-shadow: 0 24px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(242,202,114,.06) inset; }
+.fang-mark { color: var(--fang-gold-bright); font-size: 13px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.fang-disclosure h2 { margin: 18px 0 12px; color: var(--fang-cream); font-size: clamp(28px, 5vw, 42px); line-height: 1.05; }
+.fang-disclosure p { margin: 0; color: var(--fang-muted); font-size: 16px; line-height: 1.7; }
+.fang-disclosure a { color: var(--fang-gold-bright); }
+.fang-disclosure-actions { display: flex; align-items: center; gap: 16px; margin-top: 30px; }
+.fang-disclosure button { border: 0; border-radius: 4px; padding: 13px 20px; background: var(--fang-gold); color: var(--fang-black); font: 600 15px gs, sans-serif; cursor: pointer; }
+.fang-disclosure button:hover { background: var(--fang-gold-bright); }
+.fang-disclosure small { color: #77746d; }
+@keyframes disclosure-in { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 520px) { .fang-disclosure-actions { align-items: stretch; flex-direction: column; } }
+</style>
 <script defer src="/assets/ghost-global/announcements.js?v=1780352096" data-ghost-global-announcements></script>
 </head>
 
 <body>
+  <div class="fang-disclosure-backdrop" id="fangDisclosure" role="dialog" aria-modal="true" aria-labelledby="fangDisclosureTitle">
+    <section class="fang-disclosure">
+      <div class="fang-mark">FANG / NexOS variation</div>
+      <h2 id="fangDisclosureTitle">A different face for the same spirit.</h2>
+      <p>FANG is a variation of the original NexOS project. This site is independently presented in a black and gold theme. The original project is available at <a href="https://github.com/NexOS-Official/nexos-official.github.io" target="_blank" rel="noopener noreferrer">github.com/NexOS-Official/nexos-official.github.io</a>.</p>
+      <div class="fang-disclosure-actions">
+        <button type="button" id="fangDisclosureContinue">Enter FANG</button>
+        <small>Your acknowledgment is remembered in this browser.</small>
+      </div>
+    </section>
+  </div>
+  <script>
+    (function () {
+      const disclosure = document.getElementById('fangDisclosure');
+      const continueButton = document.getElementById('fangDisclosureContinue');
+      const disclosureKey = 'fang-disclosure-acknowledged';
+
+      if (!disclosure || !continueButton) return;
+
+      if (localStorage.getItem(disclosureKey) === 'true') {
+        disclosure.remove();
+        return;
+      }
+
+      document.body.style.overflow = 'hidden';
+      continueButton.focus();
+      continueButton.addEventListener('click', function () {
+        localStorage.setItem(disclosureKey, 'true');
+        disclosure.remove();
+        document.body.style.overflow = '';
+      });
+    })();
+  </script>
   <div class="wrapper">
     <div id="siteCount" style="position:fixed;top:15px;right:20px;font-size:14px;color:#666;z-index:999">
-      Ghost Services
+      FANG
     </div>
 
     <div class="textabovethatabove">
-      <img src="ghost.svg" alt="Ghost Services logo"/>
-      <h1>Ghost Services</h1>
+      <img src="ghost.svg" alt="FANG logo"/>
+      <h1>FANG</h1>
     </div>
 
 <p class="ourtoolsansstuff">
-All the tools you need, built into one free service. If you have a new tool idea, let us know: <a href=mailto:support@edpuzzle.cv>Email us!</a>
+All the tools you need, gathered into one focused space. If you have a new tool idea, let us know: <a href="mailto:support@edpuzzle.cv">Email us!</a>
 </p>
 
     <div class="ghost-boxes">
@@ -1124,7 +1205,7 @@ All the tools you need, built into one free service. If you have a new tool idea
       </div>
     </div>
 
-    <div class="carousel" aria-label="Ghost Services product icons">
+    <div class="carousel" aria-label="FANG product icons">
       <div class="track">
         <div class="logo">
           <img src="Untitled (18).png" alt=""/>
@@ -1199,11 +1280,11 @@ All the tools you need, built into one free service. If you have a new tool idea
     </div>
 
 <p class="ourtoolsansstuff2">
-      Ghost Services is a growing set of tools for communication, school organization,
+      FANG is a growing set of tools for communication, school organization,
       events, meetings, and everyday online workflows.
     </p>
 
-    <div class="section-label">Included Ghost tools</div>
+    <div class="section-label">Included FANG tools</div>
 
     <div class="feature-list">
       <div class="feature-pill">Ghost Classroom</div>
@@ -1237,8 +1318,8 @@ All the tools you need, built into one free service. If you have a new tool idea
 
     <footer class="ghost-footer">
       <div class="ghost-footer-brand">
-        <img src="ghost.svg" alt="Ghost Services"/>
-        <span>Ghost Services</span>
+        <img src="ghost.svg" alt="FANG"/>
+        <span>FANG</span>
       </div>
 
       <div class="ghost-footer-links">
@@ -1319,7 +1400,7 @@ async function loadCurrentAccount() {
 
     if (!data || !data.logged_in) return;
 
-    const displayName = data.display_name || data.name || 'Ghost User';
+    const displayName = data.display_name || data.name || 'FANG User';
 
     const avatar = data.avatar_url
       ? `<img src="${esc(data.avatar_url)}" alt="${esc(displayName)}">`
@@ -1332,7 +1413,7 @@ async function loadCurrentAccount() {
         <div class="ghost-move-content">
           <div class="account-avatar">${avatar}</div>
           <div class="account-meta">
-            <div class="account-top">Current Ghost account</div>
+            <div class="account-top">Current FANG account</div>
             <div class="account-name">${esc(displayName)}</div>
           </div>
         </div>
@@ -1362,12 +1443,12 @@ async function loadSiteCount() {
     const data = await res.json();
 
     if (typeof data.count === "number") {
-      siteCount.textContent = "Ghost users: " + data.count;
+      siteCount.textContent = "FANG users: " + data.count;
     } else {
-      siteCount.textContent = "Ghost Services";
+      siteCount.textContent = "FANG";
     }
   } catch (err) {
-    siteCount.textContent = "Ghost Services";
+    siteCount.textContent = "FANG";
   }
 }
 
